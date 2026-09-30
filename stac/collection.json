@@ -6,7 +6,7 @@
   ],
   "id": "dcf-guidebook-br-admin1-legal-reserve-ratios",
   "title": "Brazil state-level Legal Reserve (Reserva Legal) ratios, Table F-1",
-  "description": "Minimum Legal Reserve (Reserva Legal) share of rural property area by Brazilian state (GADM 4.1 GID_1) and Art. 12 native vegetation class (Law No. 12,651/2012). Legal Amazon rows follow the Forest Code's Art. 3, I definition (13°S parallel for Tocantins and Goiás), which differs from IBGE's Legal Amazon (LC 124/2007). Non-spatial lookup table; join to GADM 4.1 level-1 boundaries on gid_1.",
+  "description": "Minimum Legal Reserve (Reserva Legal) share of rural property area by Brazilian state (GADM 4.1 GID_1) and Art. 12 native vegetation class (Law No. 12,651/2012). Legal Amazon rows follow the Forest Code's Art. 3, I definition (13°S parallel for Tocantins and Goiás), which differs from IBGE's Legal Amazon (LC 124/2007). Non-spatial lookup table; join to GADM 4.1 level-1 boundaries on gid_1 (or hasc_1). 1-4 rows per state; the vegetation class must come from vegetation physiognomy, not IBGE biomes. See README 'How to join' and 'Usage notes'.",
   "license": "CC-BY-4.0",
   "keywords": [
     "DCF",
@@ -58,12 +58,17 @@
     {
       "name": "gid_1",
       "type": "string",
-      "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key."
+      "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key (GADM field GID_1)."
+    },
+    {
+      "name": "hasc_1",
+      "type": "string",
+      "description": "GADM 4.1 HASC_1 code (e.g. BR.AC). Secondary GADM join key; complete for all 27 states."
     },
     {
       "name": "gadm_version",
       "type": "string",
-      "description": "GADM release the gid_1 codes refer to."
+      "description": "GADM release the gid_1 and hasc_1 codes refer to."
     },
     {
       "name": "state_name",
@@ -129,6 +134,30 @@
       "href": "../datapackage.json",
       "type": "application/json",
       "title": "Frictionless Data Package (table schema)"
+    },
+    {
+      "rel": "describedby",
+      "href": "../README.md",
+      "type": "text/markdown",
+      "title": "README: how to join, and usage notes"
+    },
+    {
+      "rel": "related",
+      "href": "https://gadm.org/download_country.html",
+      "type": "text/html",
+      "title": "GADM 4.1 level-1 boundaries (join on GID_1; academic/non-commercial licence)"
+    },
+    {
+      "rel": "related",
+      "href": "https://geoftp.ibge.gov.br/organizacao_do_territorio/estrutura_territorial/amazonia_legal/2024/Limites_Amazonia_Legal_2024_shp.zip",
+      "type": "application/zip",
+      "title": "IBGE Amazônia Legal 2024 (differs from Forest Code Art. 3, I)"
+    },
+    {
+      "rel": "related",
+      "href": "https://geoftp.ibge.gov.br/informacoes_ambientais/estudos_ambientais/biomas/vetores/2025_Biomas-e-Sistema-Costeiro-Marinho-do-Brasil-1-250000_shp.zip",
+      "type": "application/zip",
+      "title": "IBGE Biomas 1:250 000, 2025 (not the Art. 12 vegetation classes)"
     }
   ],
   "assets": {

@@ -2,7 +2,7 @@
   "name": "dcf-guidebook-br-admin1-legal-reserve-ratios",
   "title": "Brazil state-level Legal Reserve (Reserva Legal) ratios, Table F-1",
   "description": "Minimum Legal Reserve (Reserva Legal) requirements by Brazilian state (GADM 4.1 admin-1) and native vegetation class under Art. 12 of Law No. 12,651/2012. Machine-readable Table F-1 from Navigating data for deforestation and conversion free (DCF) supply chain analyses: applied learnings from soy in Brazil, Appendix F.",
-  "version": "1.0.0-draft",
+  "version": "1.1.0-draft",
   "licenses": [
     {
       "name": "CC-BY-4.0",
@@ -37,7 +37,15 @@
           {
             "name": "gid_1",
             "type": "string",
-            "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key.",
+            "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key (GADM field GID_1).",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "hasc_1",
+            "type": "string",
+            "description": "GADM 4.1 HASC_1 code (e.g. BR.AC). Secondary GADM join key; complete for all 27 states.",
             "constraints": {
               "required": true
             }
@@ -45,7 +53,7 @@
           {
             "name": "gadm_version",
             "type": "string",
-            "description": "GADM release the gid_1 codes refer to.",
+            "description": "GADM release the gid_1 and hasc_1 codes refer to.",
             "constraints": {
               "required": true
             }
