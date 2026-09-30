@@ -20,8 +20,8 @@ of DCF-relevant datasets (Commodity Monitoring Catalogues).
 
 Planned conventions:
 
-- **Join keys:** GADM `GID_1` (for example `BRA.1_1`) as the primary join key, with the GADM
-  version pinned in the metadata. The IBGE state code (`CD_UF`) and IBGE biome name will be
+- **Join keys:** GADM **4.1** `GID_1` (for example `BRA.1_1`) as the primary join key. GADM 4.1 is
+  the version the guidebook references, and it is pinned in the metadata. The IBGE state code (`CD_UF`) and IBGE biome name will be
   included as alternative keys. All codes are stored as text, never as numbers.
 - **Ratios** are stored as decimal fractions (0-1), with units documented in the schema.
   Percent-formatted copies will not be published.
@@ -33,6 +33,14 @@ Planned conventions:
 
 To be added on publication.
 
+## Terminology note
+
+The exact legal instrument behind these ratios is still under peer review: Área de Preservação
+Permanente (APP) versus Reserva Legal (RL), both under Lei 12.651/2012. Names and metadata
+will be finalised when that review closes.
+
 ## Licence
 
-To be confirmed before publication.
+Data and documentation are licensed under
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+See [LICENSE](LICENSE).
