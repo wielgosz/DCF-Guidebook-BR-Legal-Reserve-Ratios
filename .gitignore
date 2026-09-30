@@ -1,0 +1,6 @@
+﻿# Source workbook (not published; kept locally only)
+source/
+# OS / editor
+Thumbs.db
+.DS_Store
+~$*
