@@ -1,0 +1,148 @@
+{
+  "name": "dcf-guidebook-br-admin1-legal-reserve-ratios",
+  "title": "Brazil state-level Legal Reserve (Reserva Legal) ratios, Table F-1",
+  "description": "Minimum Legal Reserve (Reserva Legal) requirements by Brazilian state (GADM 4.1 admin-1) and native vegetation class under Art. 12 of Law No. 12,651/2012. Machine-readable Table F-1 from Navigating data for deforestation and conversion free (DCF) supply chain analyses: applied learnings from soy in Brazil, Appendix F.",
+  "version": "1.0.0-draft",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Brazil. (2012). Law No. 12,651 of May 25, 2012 (Native Vegetation Protection Law). Presidency of the Republic, Casa Civil. Retrieved January 23, 2026, from https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm",
+      "path": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm"
+    }
+  ],
+  "keywords": [
+    "DCF",
+    "Brazil",
+    "Forest Code",
+    "Reserva Legal",
+    "Legal Reserve",
+    "CAR",
+    "GADM"
+  ],
+  "resources": [
+    {
+      "name": "br_admin1_legal_reserve_ratios",
+      "path": "data/br_admin1_legal_reserve_ratios.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "gid_1",
+            "type": "string",
+            "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "gadm_version",
+            "type": "string",
+            "description": "GADM release the gid_1 codes refer to.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "state_name",
+            "type": "string",
+            "description": "State name (conventional spelling).",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "uf",
+            "type": "string",
+            "description": "Two-letter state (UF) abbreviation.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "ibge_cd_uf",
+            "type": "string",
+            "description": "IBGE two-digit state code (CD_UF). Alternative join key; stored as text.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "art12_region",
+            "type": "string",
+            "description": "Art. 12 region: legal_amazon (Art. 12, I) or rest_of_brazil (Art. 12, II). Legal Amazon follows Law 12,651/2012 Art. 3, I (13°S parallel for TO and GO).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "legal_amazon",
+                "rest_of_brazil"
+              ]
+            }
+          },
+          {
+            "name": "vegetation_class",
+            "type": "string",
+            "description": "Art. 12 native vegetation class: forest, cerrado, campos_gerais, or all (rest of Brazil).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "forest",
+                "cerrado",
+                "campos_gerais",
+                "all"
+              ]
+            }
+          },
+          {
+            "name": "vegetation_class_label",
+            "type": "string",
+            "description": "Human-readable region and vegetation class as printed in Table F-1.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "legal_reserve_min_share",
+            "type": "number",
+            "description": "Minimum Reserva Legal as a share (0-1) of rural property area.",
+            "constraints": {
+              "required": true,
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          {
+            "name": "max_alt_land_use_share",
+            "type": "number",
+            "description": "Maximum share (0-1) of rural property area eligible for alternative land use, before APP and other restrictions (= 1 - legal_reserve_min_share). Not a clearing entitlement.",
+            "constraints": {
+              "required": true,
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          {
+            "name": "legal_basis",
+            "type": "string",
+            "description": "Article of Law 12,651/2012 setting the percentage.",
+            "constraints": {
+              "required": true
+            }
+          }
+        ],
+        "primaryKey": [
+          "gid_1",
+          "art12_region",
+          "vegetation_class"
+        ]
+      }
+    }
+  ]
+}

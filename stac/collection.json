@@ -1,0 +1,152 @@
+{
+  "type": "Collection",
+  "stac_version": "1.1.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json"
+  ],
+  "id": "dcf-guidebook-br-admin1-legal-reserve-ratios",
+  "title": "Brazil state-level Legal Reserve (Reserva Legal) ratios, Table F-1",
+  "description": "Minimum Legal Reserve (Reserva Legal) share of rural property area by Brazilian state (GADM 4.1 GID_1) and Art. 12 native vegetation class (Law No. 12,651/2012). Legal Amazon rows follow the Forest Code's Art. 3, I definition (13°S parallel for Tocantins and Goiás), which differs from IBGE's Legal Amazon (LC 124/2007). Non-spatial lookup table; join to GADM 4.1 level-1 boundaries on gid_1.",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "DCF",
+    "deforestation",
+    "soy",
+    "Brazil",
+    "Reserva Legal",
+    "Forest Code",
+    "CAR"
+  ],
+  "providers": [
+    {
+      "name": "Presidency of the Republic of Brazil, Casa Civil (Law No. 12,651/2012)",
+      "roles": [
+        "producer"
+      ],
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm"
+    }
+  ],
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -73.99,
+          -33.75,
+          -28.63,
+          5.27
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2012-05-25T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "dcf:appendix_ref": "F-1",
+  "dcf:coverage": "Brazil",
+  "dcf:access_type": "bulk-download",
+  "dcf:access_type_label": "Bulk file download (stable URL, not a queryable API)",
+  "dcf:access_level": "Public",
+  "dcf:citation": "Brazil. (2012). Law No. 12,651 of May 25, 2012 (Native Vegetation Protection Law). Presidency of the Republic, Casa Civil. Retrieved January 23, 2026, from https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm",
+  "dcf:guidebook_source": "Navigating data for deforestation and conversion free (DCF) supply chain analyses: applied learnings from soy in Brazil",
+  "table:row_count": 50,
+  "table:columns": [
+    {
+      "name": "gid_1",
+      "type": "string",
+      "description": "GADM 4.1 level-1 identifier (e.g. BRA.1_1). Primary join key."
+    },
+    {
+      "name": "gadm_version",
+      "type": "string",
+      "description": "GADM release the gid_1 codes refer to."
+    },
+    {
+      "name": "state_name",
+      "type": "string",
+      "description": "State name (conventional spelling)."
+    },
+    {
+      "name": "uf",
+      "type": "string",
+      "description": "Two-letter state (UF) abbreviation."
+    },
+    {
+      "name": "ibge_cd_uf",
+      "type": "string",
+      "description": "IBGE two-digit state code (CD_UF). Alternative join key; stored as text."
+    },
+    {
+      "name": "art12_region",
+      "type": "string",
+      "description": "Art. 12 region: legal_amazon (Art. 12, I) or rest_of_brazil (Art. 12, II). Legal Amazon follows Law 12,651/2012 Art. 3, I (13°S parallel for TO and GO)."
+    },
+    {
+      "name": "vegetation_class",
+      "type": "string",
+      "description": "Art. 12 native vegetation class: forest, cerrado, campos_gerais, or all (rest of Brazil)."
+    },
+    {
+      "name": "vegetation_class_label",
+      "type": "string",
+      "description": "Human-readable region and vegetation class as printed in Table F-1."
+    },
+    {
+      "name": "legal_reserve_min_share",
+      "type": "float64",
+      "description": "Minimum Reserva Legal as a share (0-1) of rural property area."
+    },
+    {
+      "name": "max_alt_land_use_share",
+      "type": "float64",
+      "description": "Maximum share (0-1) of rural property area eligible for alternative land use, before APP and other restrictions (= 1 - legal_reserve_min_share). Not a clearing entitlement."
+    },
+    {
+      "name": "legal_basis",
+      "type": "string",
+      "description": "Article of Law 12,651/2012 setting the percentage."
+    }
+  ],
+  "links": [
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/",
+      "type": "text/html",
+      "title": "CC BY 4.0"
+    },
+    {
+      "rel": "about",
+      "href": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm",
+      "type": "text/html",
+      "title": "Law No. 12,651/2012 (source)"
+    },
+    {
+      "rel": "describedby",
+      "href": "../datapackage.json",
+      "type": "application/json",
+      "title": "Frictionless Data Package (table schema)"
+    }
+  ],
+  "assets": {
+    "csv": {
+      "href": "../data/br_admin1_legal_reserve_ratios.csv",
+      "type": "text/csv",
+      "title": "Table F-1 (CSV)",
+      "roles": [
+        "data"
+      ]
+    },
+    "parquet": {
+      "href": "../data/br_admin1_legal_reserve_ratios.parquet",
+      "type": "application/vnd.apache.parquet",
+      "title": "Table F-1 (Parquet)",
+      "roles": [
+        "data"
+      ]
+    }
+  }
+}
